@@ -21,11 +21,12 @@ app.get('/', function (req, res) {
 	res.render("index");
 });
 
+app.get('/employees', function (req, res) {
+	res.end(JSON.stringify(app.locals.data.carshop.employees));
+});
+
 app.get('/carmodels', function (req, res) {
-	res.render("carmodels", {
-		title: "dsa",
-		items: todoItems
-	});
+	res.render("carmodels");
 });
 
 app.post("/carmodels", function(req, res){
