@@ -1,0 +1,20 @@
+<!doctype html>
+</html>
+<head>
+	<meta charset="UTF-8">
+	<title>Car models</title>
+<body>
+	<h><%= title %></h>
+	<ul>
+		<% for (var i = 0; i < items.length; i++) { %>
+			<br><%= items[i].desc %>
+		<% } %>
+
+	</ul>
+	
+	<form action="/carmodels" method="post">
+		<input type="text" name="newItem">
+		<input type="submit">
+	</form>
+</body>
+</html>
