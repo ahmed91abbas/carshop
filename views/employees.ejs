@@ -1,0 +1,12 @@
+<!doctype html>
+</html>
+<head>
+	<meta charset="UTF-8">
+	<title> Employees </title>
+</head>
+<body>
+	<% for(var i = 0; i < data.carshop.employees.length; i++) { %>
+		<br><%= JSON.stringify(data.carshop.employees[i], null, 2) %>
+	<% } %>
+</body>
+</html>
