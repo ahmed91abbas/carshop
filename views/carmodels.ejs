@@ -8,14 +8,15 @@
 	<pre>
 	<code>
 	<% var carmodels = JSON.parse(JSON.stringify(data.carshop.carmodels)); %>
+	<!-- delete ID attribute for each car model then show the list on the page-->
 	<% for(var i = 0; i < carmodels.length; i++) { %>
-		<% var carmodel = carmodels[i] %>
-		<% delete carmodel.id %>
-		<br><%= JSON.stringify(carmodel, null, 2) %>
+		<% var carmodel = carmodels[i]; %>
+		<% delete carmodel.id; %>
+		<br><%= JSON.stringify(carmodel, null, 2); %>
 	<% } %>
 	</pre>
 	</code>
-
+	<!-- post method for adding a new car model to the data file-->
 	<form action="/carmodels" method="post">
 		<br><label>Brand </label><br>
 		<input type="text" name="brand">

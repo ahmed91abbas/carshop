@@ -10,6 +10,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+//load the data file
 app.locals.data = require("./data.json");
 
 app.get('/', function (req, res) {
@@ -25,6 +26,7 @@ app.get('/carmodels', function (req, res) {
 	res.render("carmodels");
 });
 
+//adds the new car model to the data file and saves it
 app.post("/carmodels", function(req, res){
 	var brand = req.body.brand;
 	var model = req.body.model;
@@ -44,7 +46,7 @@ app.get('/totalsales', function (req, res) {
 });
 
 app.listen(1212, function() {
-	var host = "localhost:"
+	var host = "localhost:";
 	var port = 1212;
 	console.log("Server listening at http://%s%s", host, port);
 });

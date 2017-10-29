@@ -8,6 +8,7 @@
 	<pre>
 	<code>
 	<% var employees = JSON.parse(JSON.stringify(data.carshop.employees)); %>
+	<!-- delete ID attribute for each employee then show the list on the page-->
 	<% for(var i = 0; i < employees.length; i++) { %>
 		<% var employee = employees[i];%>
 		<% delete employee.id; %>
