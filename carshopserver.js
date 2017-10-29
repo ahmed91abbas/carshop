@@ -39,6 +39,10 @@ app.post("/carmodels", function(req, res){
 	res.redirect("/carmodels");
 });
 
+app.get('/totalsales', function (req, res) {
+	res.render("totalsales");
+});
+
 app.listen(1337, function() {
 	console.log("Listening on port 1337");
 });

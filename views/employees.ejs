@@ -5,8 +5,20 @@
 	<title> Employees </title>
 </head>
 <body>
-	<% for(var i = 0; i < data.carshop.employees.length; i++) { %>
-		<br><%= JSON.stringify(data.carshop.employees[i], null, 2) %>
+	<pre>
+	<code>
+	<% var employees = JSON.parse(JSON.stringify(data.carshop.employees)); %>
+	<% for(var i = 0; i < employees.length; i++) { %>
+		<% var employee = employees[i];%>
+		<% delete employee.id; %>
+		<br><%= JSON.stringify(employee, null, 2); %>
 	<% } %>
+	</pre>
+	</code>
 </body>
+
+<footer>
+		<br><br><a href="/">Back to homepage</a>
+</footer>
+
 </html>

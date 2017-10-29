@@ -5,9 +5,16 @@
 	<title> Car models </title>
 </head>
 <body>
-	<% for(var i = 0; i < data.carshop.carmodels.length; i++) { %>
-		<br><%= JSON.stringify(data.carshop.carmodels[i], null, 2) %>
+	<pre>
+	<code>
+	<% var carmodels = JSON.parse(JSON.stringify(data.carshop.carmodels)); %>
+	<% for(var i = 0; i < carmodels.length; i++) { %>
+		<% var carmodel = carmodels[i] %>
+		<% delete carmodel.id %>
+		<br><%= JSON.stringify(carmodel, null, 2) %>
 	<% } %>
+	</pre>
+	</code>
 
 	<form action="/carmodels" method="post">
 		<br><label>Brand </label><br>
@@ -19,4 +26,9 @@
 		<br><br><input type="submit" value="Add new car model">
 	</form>
 </body>
+
+<footer>
+	<br><br><a href="/">Back to homepage</a>
+</footer>
+
 </html>
