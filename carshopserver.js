@@ -43,6 +43,8 @@ app.get('/totalsales', function (req, res) {
 	res.render("totalsales");
 });
 
-app.listen(1337, function() {
-	console.log("Listening on port 1337");
+app.listen(1212, function() {
+	var host = "localhost:"
+	var port = 1212;
+	console.log("Server listening at http://%s%s", host, port);
 });

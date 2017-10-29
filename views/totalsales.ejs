@@ -8,16 +8,31 @@
 	<% var employees = JSON.parse(JSON.stringify(data.carshop.employees)); %>
 	<% var carmodels = data.carshop.carmodels; %>
 	<% var sales = data.carshop.sales; %>
+	<% for(var i = 0; i < employees.length; i++) { %>
+		<% employees[i].sales = 0; %>
+	<% } %>
 	<% for(var i = 0; i < sales.length; i++) { %>
-		<% var employeeID = sales.employee_id; %>
-		<% var carmodelID = sales.carmodel_id; %>
+		<% var price = 0 %>
+		<% var employeeID = sales[i].employee_id; %>
+		<% var carmodelID = sales[i].carmodel_id; %>
+		<% for(var j = 0; j < carmodels.length; j++) { %>
+			<% if (carmodelID == carmodels[j].id) { %>
+				<% price = carmodels[j].price; %>
+				<% break; %>
+			<% } %>
+		<% } %>
+		<% for(var j = 0; j < employees.length; j++) { %>
+			<% if (employeeID == employees[j].id) { %>
+				<% employees[j].sales = employees[j].sales + price; %>
+				<% break; %>
+			<% } %>
+		<% } %>
 	<% } %>
 
 	<pre>
 	<code>
 	<% for(var i = 0; i < employees.length; i++) { %>
 		<% delete employees[i].id; %>
-		<% employees[i].sales = 10; %>
 		<br><%= JSON.stringify(employees[i], null, 2); %>
 	<% } %>
 	</pre>
