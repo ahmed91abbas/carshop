@@ -5,16 +5,19 @@ var bodyParser = require("body-parser");
 var fs = require('fs');
 var app = express();
 
-app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 //load the data file
 var data = require("./data.json");
 
 app.get('/', function (req, res) {
-	res.render("index");
+	var welcome = "Welcome to Car shop server\n";
+	var options = "This server has 4 endpoints:\n";
+	var o1 = "GET /employees\n";
+	var o2 = "GET /carmodels\n";
+	var o3 = "POST /carmodels\n";
+	var o4 = "GET /total_sales\n";
+	res.send(welcome + options + o1 + o2 + o3 + o4);
 });
 
 app.get('/employees', function (req, res) {
