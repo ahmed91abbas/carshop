@@ -41,7 +41,9 @@ app.post("/carmodels", function(req, res){
 		"price": parseInt(price)
 	});
 	fs.writeFile("data.json", JSON.stringify(data, null, 2), "utf8");
-	res.redirect("/carmodels");
+	res.charset = "UTF-8";
+	res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify(getCarmodels(), null, 2));
 });
 
 app.get('/totalsales', function (req, res) {
